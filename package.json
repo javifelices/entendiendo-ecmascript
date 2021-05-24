@@ -1,0 +1,28 @@
+{
+  "name": "es6-basico",
+  "version": "1.0.0",
+  "description": "Entendiendo ECMAScript 6+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javifelices/entendiendo-ecmascript.git"
+  },
+  "keywords": [
+    "es6",
+    "es7",
+    "es8",
+    "es9",
+    "esnext",
+    "ecmascript",
+    "javascript"
+  ],
+  "author": "Javi Felices @javifelices",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javifelices/entendiendo-ecmascript/issues"
+  },
+  "homepage": "https://github.com/javifelices/entendiendo-ecmascript#readme"
+}
