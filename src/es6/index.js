@@ -51,8 +51,8 @@ console.log(person.name, person.age, person.country);
 // es6
 // let { name, age, country } = person;
 // console.log(name, age, country);
-let { name, age } = person;
-console.log(name, age);
+// let { name, age } = person;
+// console.log(name, age);
 
 
 // Spread Operator u Operador de Propogación
@@ -90,3 +90,58 @@ nombre = 'Victoria';
 // const EDAD;
 const EDAD = 42;
 // EDAD = 43;
+
+
+// Propiedad de objetos mejorada
+let name = 'javi';
+let age = 42;
+
+// es5
+obj = { name: name, age: age };
+
+// es6
+obj2 = { name, age };
+
+
+// Arrow Functions
+function suma(a, b) {
+    return a + b;
+}
+const resultado = suma(1, 5);
+
+const suma2 = (a, b) => a + b; // return implícito
+const resultado2 = suma2(1, 5);
+
+const suma3 = (a, b) => {
+    const c = a + b;
+
+    return c + 1;
+}
+const resultado3 = suma3(1, 5);
+
+const names = [
+    { name: 'Javi', age: 42 },
+    { name: 'Victoria', age: 67 }
+];
+
+let listOfNames = names.map(function (item) {
+    console.log(item.name);
+});
+
+let listOfNames2 = names.map(item => console.log(item.name));
+
+
+// Promesas
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if(false) {
+            resolve('¡Hey!');
+        } else {
+            reject('Ups!!!!!');
+        }
+    });
+};
+
+helloPromise()
+    .then(response => console.log(response))
+    .catch(err => console.log(err));
