@@ -132,16 +132,51 @@ let listOfNames2 = names.map(item => console.log(item.name));
 
 
 // Promesas
-const helloPromise = () => {
+// const helloPromise = () => {
+//     return new Promise((resolve, reject) => {
+//         if(false) {
+//             resolve('¡Hey!');
+//         } else {
+//             reject('Ups!!!!!');
+//         }
+//     });
+// };
+
+// helloPromise()
+//     .then(response => console.log(response))
+//     .catch(err => console.log(err));
+
+
+const datos = [
+    { id: 1, title: 'Iron Man', year: 2008 },
+    { id: 2, title: 'Spiderman Homecoming', year: 2017 },
+    { id: 3, title: 'Avengers Endgame', year: 2019 }
+];
+
+// const datos = [];
+
+const getDatos = () => {
     return new Promise((resolve, reject) => {
-        if(false) {
-            resolve('¡Hey!');
-        } else {
-            reject('Ups!!!!!');
+        if (datos.length === 0) {
+            reject(new Error('!!!No existen Datos!!!'))
         }
+        setTimeout(() => {
+            resolve(datos);
+        }, 2000);
     });
+}
+
+// getDatos()
+//     .then((datos) => console.log(datos))
+//     .catch(err => console.log(err));
+
+const fetchingData = async () => {
+    try {
+        const datosFetched = await getDatos();
+        console.log(datosFetched);
+    } catch (err) {
+        console.log(err.message);
+    }
 };
 
-helloPromise()
-    .then(response => console.log(response))
-    .catch(err => console.log(err));
+fetchingData();
