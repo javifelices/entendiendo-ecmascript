@@ -97,10 +97,10 @@ let name = 'javi';
 let age = 42;
 
 // es5
-obj = { name: name, age: age };
+var obj = { name: name, age: age };
 
 // es6
-obj2 = { name, age };
+const obj2 = { name, age };
 
 
 // Arrow Functions
@@ -132,102 +132,102 @@ let listOfNames2 = names.map(item => console.log(item.name));
 
 
 // Promesas
-// const helloPromise = () => {
-//     return new Promise((resolve, reject) => {
-//         if(false) {
-//             resolve('¡Hey!');
-//         } else {
-//             reject('Ups!!!!!');
-//         }
-//     });
-// };
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if(false) {
+            resolve('¡Hey!');
+        } else {
+            reject('Ups!!!!!');
+        }
+    });
+};
 
-// helloPromise()
-//     .then(response => console.log(response))
-//     .catch(err => console.log(err));
+helloPromise()
+    .then(response => console.log(response))
+    .catch(err => console.log(err));
 
 
 // Carlos Azaustre
 
-// const datos = [
-//     { id: 1, title: 'Iron Man', year: 2008 },
-//     { id: 2, title: 'Spiderman Homecoming', year: 2017 },
-//     { id: 3, title: 'Avengers Endgame', year: 2019 }
-// ];
+const datos = [
+    { id: 1, title: 'Iron Man', year: 2008 },
+    { id: 2, title: 'Spiderman Homecoming', year: 2017 },
+    { id: 3, title: 'Avengers Endgame', year: 2019 }
+];
 
 // const datos = [];
 
-// const getDatos = () => {
-//     return new Promise((resolve, reject) => {
-//         if (datos.length === 0) {
-//             reject(new Error('!!!No existen Datos!!!'))
-//         }
-//         setTimeout(() => {
-//             resolve(datos);
-//         }, 2000);
-//     });
-// }
+const getDatos = () => {
+    return new Promise((resolve, reject) => {
+        if (datos.length === 0) {
+            reject(new Error('!!!No existen Datos!!!'))
+        }
+        setTimeout(() => {
+            resolve(datos);
+        }, 2000);
+    });
+}
 
-// getDatos()
-//     .then((datos) => console.log(datos))
-//     .catch(err => console.log(err));
+getDatos()
+    .then((datos) => console.log(datos))
+    .catch(err => console.log(err));
 
-// const fetchingData = async () => {
-//     try {
-//         const datosFetched = await getDatos();
-//         console.log(datosFetched);
-//     } catch (err) {
-//         console.log(err.message);
-//     }
-// };
+const fetchingData = async () => {
+    try {
+        const datosFetched = await getDatos();
+        console.log(datosFetched);
+    } catch (err) {
+        console.log(err.message);
+    }
+};
 
-// fetchingData();
+fetchingData();
 
 
 // #jonmircha
 
-// function cuadradoPromise(value) {
-//     if (typeof value !== "number") {
-//         return Promise.reject(`¡¡¡Error!!! El valor ingresado no es un número: "${value}"`);
-//     }
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve({
-//                 value,
-//                 result: value * value
-//             });
-//         }, 0 | Math.random() * 1000);
-//     });
-// }
+function cuadradoPromise(value) {
+    if (typeof value !== "number") {
+        return Promise.reject(`¡¡¡Error!!! El valor ingresado no es un número: "${value}"`);
+    }
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({
+                value,
+                result: value * value
+            });
+        }, 0 | Math.random() * 1000);
+    });
+}
 
-// cuadradoPromise(0)
-//     .then(obj => {
-//         // console.log(obj);
-//         console.log("Inicio Promise");
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         return cuadradoPromise(1);
-//     })
-//     .then(obj => {
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         return cuadradoPromise(2);
-//     })
-//     .then(obj => {
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         return cuadradoPromise(3);
-//     })
-//     .then(obj => {
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         return cuadradoPromise(4);
-//     })
-//     .then(obj => {
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         return cuadradoPromise(5);
-//     })
-//     .then(obj => {
-//         console.log(`Promise: ${obj.value}, ${obj.result}`);
-//         console.log("Fin Promise");
-//     })
-//     .catch(err => console.error(err));
+cuadradoPromise(0)
+    .then(obj => {
+        // console.log(obj);
+        console.log("Inicio Promise");
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(1);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(2);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(3);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(4);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(5);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        console.log("Fin Promise");
+    })
+    .catch(err => console.error(err));
 
 
 // CLASES
@@ -342,4 +342,3 @@ const generatorHello = helloWorld();
 console.log(generatorHello.next().value);
 console.log(generatorHello.next().value);
 console.log(generatorHello.next().value);
-
