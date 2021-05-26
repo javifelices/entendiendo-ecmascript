@@ -147,6 +147,8 @@ let listOfNames2 = names.map(item => console.log(item.name));
 //     .catch(err => console.log(err));
 
 
+// Carlos Azaustre
+
 const datos = [
     { id: 1, title: 'Iron Man', year: 2008 },
     { id: 2, title: 'Spiderman Homecoming', year: 2017 },
@@ -180,3 +182,49 @@ const fetchingData = async () => {
 };
 
 fetchingData();
+
+
+// #jonmircha
+
+function cuadradoPromise(value) {
+    if (typeof value !== "number") {
+        return Promise.reject(`¡¡¡Error!!! El valor ingresado no es un número: "${value}"`);
+    }
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({
+                value,
+                result: value * value
+            });
+        }, 0 | Math.random() * 1000);
+    });
+}
+
+cuadradoPromise(0)
+    .then(obj => {
+        // console.log(obj);
+        console.log("Inicio Promise");
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(1);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(2);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(3);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(4);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(5);
+    })
+    .then(obj => {
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        console.log("Fin Promise");
+    })
+    .catch(err => console.error(err));
