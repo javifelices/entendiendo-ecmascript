@@ -321,3 +321,25 @@ scooby.ladrar();
 // A la hora de llamar a los métodos getters y setters se hace como si fueran un atributo. Véase como se usa el setter. Es un funcionamiento especial de Javascript que no suele darse en otros lenguajes. Podemos decir que los getters y setters son atributos especiales.
 scooby.setRaza = "Grán Danés";
 scooby.getRaza;
+
+
+// MÓDULOS (import, export)
+import hola from './module'
+
+hola();
+
+
+// Generators
+function* helloWorld() {
+    if (true) {
+        yield 'Hello, ';
+    }
+    if (true) {
+        yield 'World';
+    }
+};
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+
