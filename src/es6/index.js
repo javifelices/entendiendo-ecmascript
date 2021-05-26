@@ -149,82 +149,175 @@ let listOfNames2 = names.map(item => console.log(item.name));
 
 // Carlos Azaustre
 
-const datos = [
-    { id: 1, title: 'Iron Man', year: 2008 },
-    { id: 2, title: 'Spiderman Homecoming', year: 2017 },
-    { id: 3, title: 'Avengers Endgame', year: 2019 }
-];
+// const datos = [
+//     { id: 1, title: 'Iron Man', year: 2008 },
+//     { id: 2, title: 'Spiderman Homecoming', year: 2017 },
+//     { id: 3, title: 'Avengers Endgame', year: 2019 }
+// ];
 
 // const datos = [];
 
-const getDatos = () => {
-    return new Promise((resolve, reject) => {
-        if (datos.length === 0) {
-            reject(new Error('!!!No existen Datos!!!'))
-        }
-        setTimeout(() => {
-            resolve(datos);
-        }, 2000);
-    });
-}
+// const getDatos = () => {
+//     return new Promise((resolve, reject) => {
+//         if (datos.length === 0) {
+//             reject(new Error('!!!No existen Datos!!!'))
+//         }
+//         setTimeout(() => {
+//             resolve(datos);
+//         }, 2000);
+//     });
+// }
 
 // getDatos()
 //     .then((datos) => console.log(datos))
 //     .catch(err => console.log(err));
 
-const fetchingData = async () => {
-    try {
-        const datosFetched = await getDatos();
-        console.log(datosFetched);
-    } catch (err) {
-        console.log(err.message);
-    }
-};
+// const fetchingData = async () => {
+//     try {
+//         const datosFetched = await getDatos();
+//         console.log(datosFetched);
+//     } catch (err) {
+//         console.log(err.message);
+//     }
+// };
 
-fetchingData();
+// fetchingData();
 
 
 // #jonmircha
 
-function cuadradoPromise(value) {
-    if (typeof value !== "number") {
-        return Promise.reject(`¡¡¡Error!!! El valor ingresado no es un número: "${value}"`);
+// function cuadradoPromise(value) {
+//     if (typeof value !== "number") {
+//         return Promise.reject(`¡¡¡Error!!! El valor ingresado no es un número: "${value}"`);
+//     }
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve({
+//                 value,
+//                 result: value * value
+//             });
+//         }, 0 | Math.random() * 1000);
+//     });
+// }
+
+// cuadradoPromise(0)
+//     .then(obj => {
+//         // console.log(obj);
+//         console.log("Inicio Promise");
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         return cuadradoPromise(1);
+//     })
+//     .then(obj => {
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         return cuadradoPromise(2);
+//     })
+//     .then(obj => {
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         return cuadradoPromise(3);
+//     })
+//     .then(obj => {
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         return cuadradoPromise(4);
+//     })
+//     .then(obj => {
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         return cuadradoPromise(5);
+//     })
+//     .then(obj => {
+//         console.log(`Promise: ${obj.value}, ${obj.result}`);
+//         console.log("Fin Promise");
+//     })
+//     .catch(err => console.error(err));
+
+
+// CLASES
+
+class Calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
     }
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({
-                value,
-                result: value * value
-            });
-        }, 0 | Math.random() * 1000);
-    });
+    sum(valueA, valueB) {
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+}
+const calc = new Calculator();
+console.log(calc.sum(2, 2));
+
+// jonmircha
+// function Animal(nombre, genero) {
+//     this.nombre = nombre;
+//     this.genero = genero;
+
+//     this.sonar = function () {
+//         console.log("Hago sonidos porque estoy vivo");
+//     }
+
+//     this.saludar = function () {
+//         console.log(`Hola, me llamo ${this.nombre}`);
+//     }
+// }
+
+class Animal {
+    constructor(nombre, genero) {
+        this.nombre = nombre;
+        this.genero = genero;
+    }
+
+    sonar() {
+        console.log("Hago sonidos porque estoy vivo");
+    }
+
+    saludar() {
+        console.log(`Hola, me llamo ${this.nombre}`);
+    }
 }
 
-cuadradoPromise(0)
-    .then(obj => {
-        // console.log(obj);
-        console.log("Inicio Promise");
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        return cuadradoPromise(1);
-    })
-    .then(obj => {
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        return cuadradoPromise(2);
-    })
-    .then(obj => {
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        return cuadradoPromise(3);
-    })
-    .then(obj => {
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        return cuadradoPromise(4);
-    })
-    .then(obj => {
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        return cuadradoPromise(5);
-    })
-    .then(obj => {
-        console.log(`Promise: ${obj.value}, ${obj.result}`);
-        console.log("Fin Promise");
-    })
-    .catch(err => console.error(err));
+class Perro extends Animal {
+    constructor(nombre, genero, tamannio) {
+        super(nombre, genero, tamannio);
+        this.tamannio = tamannio;
+        this.raza = null;
+    }
+
+    sonar() {
+        console.log("Soy un perro y mi sonido es un ladrido");
+    }
+
+    ladrar() {
+        console.log("¡Guauuu Guauuu!");
+    }
+
+    // Un método estático se puede ejecutar sin necesitad de instanciar la clase
+    static queEres() {
+        console.log("Los perros somos animales maníferos que pertenecemos a la familia de los caninos. Somos consierdados los mejores amigos del hombre.")
+    }
+
+    // Los setters y getters son métodos especiales que permiten establecer y obtener los valores de los atributos de una clase
+    get getRaza() {
+        return this.raza;
+    }
+
+    set setRaza(raza) {
+        this.raza = raza;
+    }
+}
+
+Perro.queEres();
+
+const mimi = new Animal("Mimi", "Hembra"),
+    scooby = new Perro("Scooby", "Macho", "Gigante");
+
+// console.log(mimi);
+mimi.saludar();
+mimi.sonar();
+// console.log(scooby);
+scooby.saludar();
+scooby.sonar();
+scooby.ladrar();
+
+// A la hora de llamar a los métodos getters y setters se hace como si fueran un atributo. Véase como se usa el setter. Es un funcionamiento especial de Javascript que no suele darse en otros lenguajes. Podemos decir que los getters y setters son atributos especiales.
+scooby.setRaza = "Grán Danés";
+scooby.getRaza;
